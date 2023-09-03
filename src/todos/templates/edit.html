@@ -1,0 +1,7 @@
+{% extends "index.html" %}
+
+{% block content %}
+  <h1>Todo - {{todo.label}}</h1>
+
+  <a class="button button-primary" href="{{ url_for('todos_bp.home') }}">Back</a>
+{% endblock %}

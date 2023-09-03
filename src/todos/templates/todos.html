@@ -1,0 +1,24 @@
+{% extends "index.html" %}
+
+{% block content %}
+    <h1>Todos</h1>
+
+      <ul class="list">
+          {% for todo in todos %}
+              <li class="todo-row">
+                  <div>
+                      {{todo.label}}
+                  </div>
+                  <div class="button-group">
+                      <a class="button button-primary" href="{{ url_for('todos_bp.edit_todo', id=todo.id) }}">Edit</a>
+                      <a class="button button-danger" href="{{ url_for('todos_bp.delete_todo', id=todo.id) }}">Delete</a>
+                  </div>
+              </li>
+          {% endfor %}
+      </ul>
+{% endblock %}
+
+{% block styles %}
+    {{ super() }}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('.static', filename='css/todos.css') }}" />
+{% endblock %}
